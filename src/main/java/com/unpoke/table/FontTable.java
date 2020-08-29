@@ -1,4 +1,4 @@
-package com.unpoke.font;
+package com.unpoke.table;
 
 public interface FontTable {
     FontTableType getTableType();

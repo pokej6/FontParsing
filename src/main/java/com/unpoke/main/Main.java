@@ -1,9 +1,11 @@
-package com.unpoke.font;
+package com.unpoke.main;
 
 import java.io.File;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
+
+import com.unpoke.font.TrueTypeFont;
 
 public class Main {
     private final static Logger LOG = Logger.getLogger(Main.class);

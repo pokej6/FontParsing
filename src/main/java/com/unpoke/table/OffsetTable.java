@@ -1,6 +1,9 @@
-package com.unpoke.font;
+package com.unpoke.table;
 
 import java.io.IOException;
+
+import com.unpoke.font.FontFileReader;
+import com.unpoke.font.ScalableFontVersion;
 
 public class OffsetTable implements FontTable {	
     private final long startOffset;

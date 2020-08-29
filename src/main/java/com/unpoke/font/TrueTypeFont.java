@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.unpoke.table.FontTable;
+import com.unpoke.table.FontTableType;
+import com.unpoke.table.OffsetTable;
+
 public class TrueTypeFont implements Font {
     private final Map<FontTableType, TableRecord> tableRecords;
     private final Map<FontTableType, FontTable> tables;
@@ -18,9 +22,11 @@ public class TrueTypeFont implements Font {
         tables.put(FontTableType.OFFSET, offsetTable);
 
         TableRecord currentRecord;
+        long currentRecordOffset = offsetTable.getTableEnd(); 
         for (int i = 0;i < offsetTable.getNumberOfSubtables();i++) {
-            currentRecord = new TableRecord(fontReader);
+            currentRecord = new TableRecord(fontReader, currentRecordOffset);
             tableRecords.put(currentRecord.getTableType(), currentRecord);
+            currentRecordOffset += 16;
         }
     }
 
